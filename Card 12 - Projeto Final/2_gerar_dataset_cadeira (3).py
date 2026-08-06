@@ -2,9 +2,6 @@
 """
 SCRIPT 2/2 -- Gera o dataset sintetico da chair_01 (deteccao, formato YOLO).
 
-Rode DEPOIS do 1_montar_cena_cadeira.py, na mesma sessao do Blender.
-Compativel com Blender 2.83.
-
 Saida (layout padrao do Ultralytics YOLO):
 
     C:/tmp/chairs_dataset/
