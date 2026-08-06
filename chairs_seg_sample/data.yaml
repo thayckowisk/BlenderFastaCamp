@@ -1,0 +1,5 @@
+path: chairs_seg_sample
+train: images/train
+val: images/val
+nc: 1
+names: ['chair']
