@@ -1,5 +1,6 @@
 path: chairs_dataset_sample
 train: images/train
 val: images/val
+test: images/test
 nc: 1
 names: ['chair']
