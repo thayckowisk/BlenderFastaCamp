@@ -14,28 +14,6 @@ Saida (layout padrao do Ultralytics YOLO):
 
 Cada .txt tem uma linha:  0 x_centro y_centro largura altura   (normalizado 0-1)
 
-DIFERENCAS EM RELACAO A VERSAO ANTERIOR (e por que importam):
-
-1. Bounding box AJUSTADA (tight): projeta os 164 vertices reais da malha,
-   nao os 8 cantos de obj.bound_box. A bound_box e' alinhada aos eixos
-   LOCAIS -- quando a cadeira gira, ela superestima a caixa e o rotulo fica
-   maior que o objeto, o que derruba o IoU no treino.
-
-2. Camera por coordenadas esfericas (azimute/elevacao/raio) com Track To.
-   Garante enquadramento e permite randomizar a DISTANCIA, coisa que o rig
-   de curvas aninhadas do projeto da caneca nao permitia.
-
-3. Jitter no alvo: o ponto que a camera mira sai um pouco do centro em cada
-   render. Sem isso a cadeira cai sempre no meio do quadro e o modelo
-   aprende vies de centro, indo mal em imagens reais.
-
-4. Domain randomization: cor/rugosidade da cadeira, cor do backdrop,
-   energia e temperatura das luzes, rotacao do rig de luz. E' o que reduz o
-   domain gap -- ponto que o desafio pede para discutir no relatorio.
-
-5. Controle de qualidade da amostra: descarta o render se a cadeira estiver
-   muito truncada pela borda ou pequena demais no quadro, e recalcula a pose
-   em vez de gravar um rotulo ruim.
 """
 
 import bpy
